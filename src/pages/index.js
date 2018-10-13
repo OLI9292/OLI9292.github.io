@@ -1,5 +1,7 @@
 import React from 'react'
-import { Link } from 'gatsby'
+
+import styled from 'styled-components'
+import sr from '../components/scrollReveal'
 
 import Layout from '../components/layout'
 
@@ -8,90 +10,133 @@ import coaching from '../images/coaching.jpg'
 import competition from '../images/competition.jpg'
 import lifestyle from '../images/lifestyle.jpg'
 
-const IndexPage = () => (
-  <Layout>
-    <div style={styles.flexed}>
-      <img style={styles.mainImage} src={main} />
-      <h1 style={styles.beHumble}>be humble</h1>
-    </div>
+const scrollConfig = origin => ({
+  origin,
+  duration: 1000,
+  delay: 150,
+  distance: '500px',
+  scale: 1,
+  easing: 'ease',
+})
 
-    <div style={styles.informatic}>
-      <div>
-        <h3 style={styles.title}>coaching</h3>
-        <p style={styles.text}>
-          I offer personal training to clients in New York City.
-        </p>
-      </div>
-      <img style={styles.secondaryImage} src={coaching} />
-    </div>
+const Flexed = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
+`
 
-    <div style={styles.informatic}>
-      <img
-        style={Object.assign({ marginRight: '25px' }, styles.secondaryImage)}
-        src={competition}
-      />
-      <div>
-        <h3 style={styles.title}>competition</h3>
-        <p style={styles.text}>
-          The Be Humble fight team competes in martial arts competitions in and
-          around the city.
-        </p>
-      </div>
-    </div>
+const Informatic = styled.div`
+  margin-top: 110px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  @media only screen and (max-width: 768px) {
+    margin-top: 40px;
+    flex-direction: ${p => `column${p.reverse ? '-reverse' : ''}`};
+  }
+`
 
-    <div style={styles.informatic}>
-      <div>
-        <h3 style={styles.title}>lifestyle</h3>
-        <p style={styles.text}>
-          Be humble is a brand promoting living a healthy lifestyle with
-          confidence and humility.
-        </p>
-      </div>
-      <img style={styles.secondaryImage} src={lifestyle} />
-    </div>
-  </Layout>
-)
+const MainImage = styled.img`
+  min-height: 70vh;
+  min-width: 70vh;
+  max-width: 70vh;
+  max-height: 70vh;
+  width: auto;
+  height: auto;
+  @media only screen and (max-width: 768px) {
+    min-height: 60vh;
+    min-width: 60vh;
+    max-width: 60vh;
+    max-height: 60vh;
+  }
+`
 
-const styles = {
-  flexed: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  informatic: {
-    marginTop: '80px',
-    display: 'flex',
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
-  },
-  mainImage: {
-    minHeight: '70vh',
-    minWidth: '70vh',
-    maxWidth: '70vh',
-    maxHeight: '70vh',
-    width: 'auto',
-    height: 'auto',
-  },
-  beHumble: {
-    fontFamily: 'Exo',
-    fontSize: '90px',
-    fontWeight: '900',
-    color: '#FFC300',
-    marginLeft: '-60px',
-  },
-  title: {
-    fontFamily: 'Exo',
-    fontWeight: '900',
-    letterSpacing: '1px',
-    textTransform: 'uppercase',
-  },
-  text: {
-    fontFamily: 'EBGaramond',
-  },
-  secondaryImage: {
-    width: '45vw',
-    height: 'auto',
-  },
+const BeHumble = styled.h1`
+  font-family: Exo;
+  font-size: 90px;
+  font-weight: 900;
+  color: #ffc300;
+  margin-left: -60px;
+  @media only screen and (max-width: 768px) {
+    margin: 0 auto;
+    font-size: 50px;
+    padding: 10px 0;
+  }
+`
+
+const Title = styled.h4`
+  font-family: Exo;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+`
+
+const Text = styled.p`
+  font-family: EBGaramond;
+`
+const SecondaryImage = styled.img`
+  width: 45vw;
+  height: auto;
+  margin-right: ${p => (p.marginRight ? '25px' : '')};
+  @media only screen and (max-width: 768px) {
+    margin: 0 auto;
+    width: 65vw;
+  }
+`
+
+export class IndexPage extends React.Component {
+  componentDidMount = () => {
+    const config = {}
+
+    sr.reveal(this.refs.box2, scrollConfig('left'))
+    sr.reveal(this.refs.box3, scrollConfig('right'))
+    sr.reveal(this.refs.box4, scrollConfig('left'))
+  }
+
+  render() {
+    return (
+      <Layout>
+        <Flexed>
+          <MainImage src={main} />
+          <BeHumble>be humble</BeHumble>
+        </Flexed>
+
+        <Informatic ref="box2">
+          <div>
+            <Title>coaching</Title>
+            <Text>I offer personal training to clients in New York City.</Text>
+          </div>
+          <SecondaryImage src={coaching} />
+        </Informatic>
+
+        <Informatic reverse={true} ref="box3">
+          <SecondaryImage marginRight={true} src={competition} />
+          <div>
+            <Title>competition</Title>
+            <Text>
+              The Be Humble fight team competes in martial arts competitions in
+              and around the city.
+            </Text>
+          </div>
+        </Informatic>
+
+        <Informatic ref="box4">
+          <div>
+            <Title>lifestyle</Title>
+            <Text>
+              Be humble is a brand promoting living a healthy lifestyle with
+              confidence and humility.
+            </Text>
+          </div>
+          <SecondaryImage src={lifestyle} />
+        </Informatic>
+      </Layout>
+    )
+  }
 }
 
 export default IndexPage

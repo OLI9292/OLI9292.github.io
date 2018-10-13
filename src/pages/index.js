@@ -2,12 +2,6 @@ import React from 'react'
 
 import styled from 'styled-components'
 
-try {
-  import sr from '../components/scrollReveal'
-} catch (e) {
-  console.log(e)
-}
-
 import Layout from '../components/layout'
 
 import main from '../images/main.jpg'
@@ -95,13 +89,14 @@ const SecondaryImage = styled.img`
 
 export class IndexPage extends React.Component {
   componentDidMount = () => {
-    const config = {}
-
-    if (sr) {
-      sr.reveal(this.refs.box2, scrollConfig('left'))
-      sr.reveal(this.refs.box3, scrollConfig('right'))
-      sr.reveal(this.refs.box4, scrollConfig('left'))
-    }
+    // try {
+    //   const sr = require('../components/scrollReveal')
+    //   sr.reveal(this.refs.box2, scrollConfig('left'))
+    //   sr.reveal(this.refs.box3, scrollConfig('right'))
+    //   sr.reveal(this.refs.box4, scrollConfig('left'))
+    // } catch (e) {
+    //   console.log(e)
+    // }
   }
 
   render() {

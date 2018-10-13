@@ -1,7 +1,12 @@
 import React from 'react'
 
 import styled from 'styled-components'
-import sr from '../components/scrollReveal'
+
+try {
+  import sr from '../components/scrollReveal'
+} catch (e) {
+  console.log(e)
+}
 
 import Layout from '../components/layout'
 
@@ -92,9 +97,11 @@ export class IndexPage extends React.Component {
   componentDidMount = () => {
     const config = {}
 
-    sr.reveal(this.refs.box2, scrollConfig('left'))
-    sr.reveal(this.refs.box3, scrollConfig('right'))
-    sr.reveal(this.refs.box4, scrollConfig('left'))
+    if (sr) {
+      sr.reveal(this.refs.box2, scrollConfig('left'))
+      sr.reveal(this.refs.box3, scrollConfig('right'))
+      sr.reveal(this.refs.box4, scrollConfig('left'))
+    }
   }
 
   render() {

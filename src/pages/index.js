@@ -77,6 +77,19 @@ const Title = styled.h4`
 const Text = styled.p`
   font-family: EBGaramond;
 `
+
+const Tagline = styled.p`
+  font-family: EBGaramond;
+  font-style: italic;
+  font-size: 24px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 90px;
+  @media only screen and (max-width: 768px) {
+    margin-top: 40px;
+  }
+`
+
 const SecondaryImage = styled.img`
   width: 45vw;
   height: auto;
@@ -89,14 +102,14 @@ const SecondaryImage = styled.img`
 
 export class IndexPage extends React.Component {
   componentDidMount = () => {
-    // try {
-    //   const sr = require('../components/scrollReveal')
-    //   sr.reveal(this.refs.box2, scrollConfig('left'))
-    //   sr.reveal(this.refs.box3, scrollConfig('right'))
-    //   sr.reveal(this.refs.box4, scrollConfig('left'))
-    // } catch (e) {
-    //   console.log(e)
-    // }
+    try {
+      const sr = require('../components/scrollReveal')
+      sr.reveal(this.refs.box2, scrollConfig('left'))
+      sr.reveal(this.refs.box3, scrollConfig('right'))
+      sr.reveal(this.refs.box4, scrollConfig('left'))
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   render() {
@@ -106,6 +119,8 @@ export class IndexPage extends React.Component {
           <MainImage src={main} />
           <BeHumble>be humble</BeHumble>
         </Flexed>
+
+        <Tagline>If you fail to plan, you plan to fail.</Tagline>
 
         <Informatic ref="box2">
           <div>

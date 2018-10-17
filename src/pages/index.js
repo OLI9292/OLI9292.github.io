@@ -47,8 +47,11 @@ const Informatic = styled.div`
   width: 60%;
   align-items: flex-start;
   justify-content: space-between;
+  border-top: 1px solid #ccc;
   @media only screen and (max-width: 768px) {
     margin-top: 30px;
+    padding: 0;
+    border: 0;
     margin-left: 0 !important;
     flex-direction: column;
     width: 100%;
@@ -94,6 +97,7 @@ const Header = styled.h3`
 
 const Text = styled.p`
   font-family: EBGaramond;
+  margin-top ${p => (p.marginTop ? '10px' : '0')}
 `
 
 const Tagline = styled.p`
@@ -120,6 +124,7 @@ const SecondaryImage = styled.img`
   width: 55%;
   height: auto;
   margin-left: 10px;
+  margin-top: -1px;
   @media only screen and (max-width: 768px) {
     margin: 0 auto;
     width: 75%;
@@ -143,15 +148,15 @@ export class IndexPage extends React.Component {
 
         <Informatics>
           <Informatic ref="box2">
-            <Text>
+            <Text marginTop>
               We are experienced motivators and influencers, specializing in
               various aspects of physical and mental fitness.
             </Text>
             <SecondaryImage src={secondary1} />
           </Informatic>
 
-          <Informatic style={{ marginLeft: '20%' }} ref="box3">
-            <Text>
+          <Informatic style={{ paddingLeft: '20%', width: '80%' }} ref="box3">
+            <Text marginTop>
               From cognitive training, prenatal, Boxing, MMA, Muay Thai, kick
               boxing, kettlebell free flow movement to strength and
               conditioning.
@@ -159,8 +164,8 @@ export class IndexPage extends React.Component {
             <SecondaryImage src={secondary2} />
           </Informatic>
 
-          <Informatic style={{ marginLeft: '40%' }} ref="box4">
-            <Text>
+          <Informatic style={{ paddingLeft: '40%', width: '100%' }} ref="box4">
+            <Text marginTop>
               No matter your fitness goals we have experienced and certified
               trainers to help you set and achieve those goals.
             </Text>

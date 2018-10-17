@@ -1,22 +1,28 @@
 import React from 'react'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+
+import TESTIMONIALS from '../data/testimonials'
 
 import styled from 'styled-components'
 
 import Layout from '../components/layout'
 
 import main from '../images/main.jpg'
-import coaching from '../images/coaching.jpg'
-import competition from '../images/competition.jpg'
-import lifestyle from '../images/lifestyle.jpg'
+import secondary1 from '../images/secondary1.jpg'
+import secondary2 from '../images/secondary2.jpg'
+import secondary3 from '../images/secondary3.jpg'
 
-const scrollConfig = origin => ({
-  origin,
-  duration: 1000,
-  delay: 150,
-  distance: '500px',
-  scale: 1,
-  easing: 'ease',
-})
+var settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  autoplay: true,
+  adaptiveHeight: true,
+  autoplaySpeed: 10000,
+  slidesToShow: 1,
+}
 
 const Flexed = styled.div`
   display: flex;
@@ -28,9 +34,17 @@ const Flexed = styled.div`
   }
 `
 
+const Informatics = styled.div`
+  margin-top: 270px;
+  @media only screen and (max-width: 768px) {
+    margin-top: 160px;
+  }
+`
+
 const Informatic = styled.div`
-  margin-top: 110px;
+  margin-top: 60px;
   display: flex;
+  width: 60%;
   align-items: flex-start;
   justify-content: space-between;
   @media only screen and (max-width: 768px) {
@@ -40,10 +54,10 @@ const Informatic = styled.div`
 `
 
 const MainImage = styled.img`
-  min-height: 70vh;
-  min-width: 70vh;
-  max-width: 70vh;
-  max-height: 70vh;
+  min-height: 60vh;
+  min-width: 60vh;
+  max-width: 60vh;
+  max-height: 60vh;
   width: auto;
   height: auto;
   @media only screen and (max-width: 768px) {
@@ -56,10 +70,11 @@ const MainImage = styled.img`
 
 const BeHumble = styled.h1`
   font-family: Exo;
-  font-size: 90px;
+  font-size: 80px;
   font-weight: 900;
   color: #ffc300;
-  margin-left: -60px;
+  margin-left: -200px;
+  text-transform: uppercase;
   @media only screen and (max-width: 768px) {
     margin: 0 auto;
     font-size: 50px;
@@ -67,11 +82,12 @@ const BeHumble = styled.h1`
   }
 `
 
-const Title = styled.h4`
+const Header = styled.h3`
   font-family: Exo;
-  font-weight: 900;
   letter-spacing: 1px;
   text-transform: uppercase;
+  text-align: center;
+  color: #ffc300;
 `
 
 const Text = styled.p`
@@ -79,78 +95,90 @@ const Text = styled.p`
 `
 
 const Tagline = styled.p`
-  font-family: EBGaramond;
+  font-family: EBGaramondExtraBoldItalic;
   font-style: italic;
   font-size: 24px;
   margin: 0 auto;
+  background-color: #ffc300;
   text-align: center;
-  margin-top: 90px;
+  padding: 50px 0px;
+  position: absolute
+  left: 0;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.2);
+  width: 100vw;
+  margin-top: 70px;
   @media only screen and (max-width: 768px) {
     margin-top: 40px;
+    padding: 30px 0px;
+    font-size: 20px;
   }
 `
 
 const SecondaryImage = styled.img`
-  width: 45vw;
+  width: 55%;
   height: auto;
-  margin-right: ${p => (p.marginRight ? '25px' : '')};
-  @media only screen and (max-width: 768px) {
-    margin: 0 auto;
-    width: 65vw;
-  }
+  margin-left: 10px;
 `
 
 export class IndexPage extends React.Component {
-  componentDidMount = () => {
-    try {
-      const sr = require('../components/scrollReveal')
-      sr.reveal(this.refs.box2, scrollConfig('left'))
-      sr.reveal(this.refs.box3, scrollConfig('right'))
-      sr.reveal(this.refs.box4, scrollConfig('left'))
-    } catch (e) {
-      console.log(e)
-    }
-  }
-
   render() {
     return (
       <Layout>
         <Flexed>
           <MainImage src={main} />
-          <BeHumble>be humble</BeHumble>
+          <BeHumble>
+            be humble
+            <br />
+            <span style={{ color: 'black' }}>movement</span>
+          </BeHumble>
         </Flexed>
 
         <Tagline>If you fail to plan, you plan to fail.</Tagline>
 
-        <Informatic ref="box2">
-          <div>
-            <Title>coaching</Title>
-            <Text>I offer personal training to clients in New York City.</Text>
-          </div>
-          <SecondaryImage src={coaching} />
-        </Informatic>
-
-        <Informatic reverse={true} ref="box3">
-          <SecondaryImage marginRight={true} src={competition} />
-          <div>
-            <Title>competition</Title>
+        <Informatics>
+          <Informatic ref="box2">
             <Text>
-              The Be Humble fight team competes in martial arts competitions in
-              and around the city.
+              We are experienced motivators and influencers, specializing in
+              various aspects of physical and mental fitness.
             </Text>
-          </div>
-        </Informatic>
+            <SecondaryImage src={secondary1} />
+          </Informatic>
 
-        <Informatic ref="box4">
-          <div>
-            <Title>lifestyle</Title>
+          <Informatic style={{ marginLeft: '20%' }} ref="box3">
             <Text>
-              Be humble is a brand promoting living a healthy lifestyle with
-              confidence and humility.
+              From cognitive training, prenatal, Boxing, MMA, Muay Thai, kick
+              boxing, kettlebell free flow movement to strength and
+              conditioning.
             </Text>
-          </div>
-          <SecondaryImage src={lifestyle} />
-        </Informatic>
+            <SecondaryImage src={secondary2} />
+          </Informatic>
+
+          <Informatic style={{ marginLeft: '40%' }} ref="box4">
+            <Text>
+              No matter your fitness goals we have experienced and certified
+              trainers to help you set and achieve those goals.
+            </Text>
+            <SecondaryImage src={secondary3} />
+          </Informatic>
+        </Informatics>
+
+        <br />
+        <br />
+
+        <Header>testimonials</Header>
+
+        <Slider {...settings}>
+          {TESTIMONIALS.map((t, i) => (
+            <Text key={i}>
+              {t.text}
+              <br />
+              <br />- {t.from}
+            </Text>
+          ))}
+        </Slider>
+
+        <br />
+        <br />
       </Layout>
     )
   }

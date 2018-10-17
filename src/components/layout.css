@@ -617,6 +617,11 @@ pre tt:after {
 }
 
 @font-face {
+  font-family: EBGaramondExtraBoldItalic;
+  src: url('../fonts/EBGaramond-ExtraBoldItalic.ttf');
+}
+
+@font-face {
   font-family: Exo;
   src: url('../fonts/Exo-ExtraBold.ttf');
 }

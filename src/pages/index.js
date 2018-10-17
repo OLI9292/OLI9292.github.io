@@ -48,8 +48,10 @@ const Informatic = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   @media only screen and (max-width: 768px) {
-    margin-top: 40px;
-    flex-direction: ${p => `column${p.reverse ? '-reverse' : ''}`};
+    margin-top: 30px;
+    margin-left: 0 !important;
+    flex-direction: column;
+    width: 100%;
   }
 `
 
@@ -118,6 +120,10 @@ const SecondaryImage = styled.img`
   width: 55%;
   height: auto;
   margin-left: 10px;
+  @media only screen and (max-width: 768px) {
+    margin: 0 auto;
+    width: 75%;
+  }
 `
 
 export class IndexPage extends React.Component {

@@ -50,11 +50,11 @@ const Informatic = styled.div`
   border-top: 1px solid #ccc;
   @media only screen and (max-width: 768px) {
     margin-top: 30px;
-    padding: 0;
-    border: 0;
+    padding: 0 !important;
+    border: 0 !important;
     margin-left: 0 !important;
     flex-direction: column;
-    width: 100%;
+    width: 100% !important;
   }
 `
 

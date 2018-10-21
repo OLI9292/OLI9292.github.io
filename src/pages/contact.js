@@ -41,8 +41,10 @@ const ContactPage = () => (
 
 const styles = {
   bannerImage: {
-    width: '100%',
-    margin: '0 auto',
+    maxWidth: '100%',
+    maxHeight: '350px',
+    width: 'auto',
+    height: 'auto',
   },
   header: {
     fontFamily: 'Exo',

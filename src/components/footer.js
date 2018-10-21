@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
+import insta from '../images/insta.png'
+
 const containerStyle = {
   width: '95%',
   margin: '0 auto',
+  marginTop: '40px',
   textAlign: 'center',
 }
 
@@ -32,8 +35,19 @@ const emailStyle = {
   textDecoration: 'none',
 }
 
+const instaStyle = {
+  width: '50px',
+  height: '50px',
+  margin: '0 auto',
+  cursor: 'pointer',
+  opacity: 0.4,
+}
+
 const Footer = () => (
   <div style={containerStyle}>
+    <a href="https://www.instagram.com/jmark_champfit/?hl=en" target="_blank">
+      <img src={insta} style={instaStyle} />
+    </a>
     <div style={dividerStyle} />
     <a href="mailto:info@behumblemovement.com" style={emailStyle}>
       info@behumblemovement.com

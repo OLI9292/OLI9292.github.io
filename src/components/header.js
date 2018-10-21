@@ -37,7 +37,15 @@ const Header = () => (
       </Link>
     </StyledLink>
     <StyledLink>
-      <Link to="/contact " style={linkStyle}>
+      <Link
+        to="/gallery"
+        style={Object.assign({ marginRight: '25px' }, linkStyle)}
+      >
+        gallery
+      </Link>
+    </StyledLink>
+    <StyledLink>
+      <Link to="/contact" style={linkStyle}>
         contact
       </Link>
     </StyledLink>

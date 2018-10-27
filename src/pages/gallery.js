@@ -1,10 +1,10 @@
 import React from 'react'
-import Gallery from 'react-image-gallery'
-import YouTube from 'react-youtube'
 
 import Layout from '../components/layout'
 
-import pic1 from '../images/gallery/gallery1.jpg'
+import Gallery from 'react-image-gallery'
+import YouTube from 'react-youtube'
+
 import pic2 from '../images/gallery/gallery2.jpg'
 import pic3 from '../images/gallery/gallery3.jpg'
 import pic4 from '../images/gallery/gallery4.jpg'
@@ -18,9 +18,9 @@ const youtubeOptions = {
   },
 }
 
-const VIDEOS = ['Fvoz_ev7aFc', '1tqrR6mRpXo', 'Ncsexm287E8']
+const VIDEOS = ['db-P2g-Ggxw', '5Lt8hB9ib2o', 'HY05H3lCPXY']
 
-const images = [pic1, pic2, pic3, pic4, pic5].map(pic => ({
+const images = [pic2, pic3, pic4, pic5].map(pic => ({
   original: pic,
   thumbnail: pic,
 }))
@@ -37,6 +37,9 @@ const styles = {
 }
 
 class GalleryPage extends React.Component {
+  componentDidMount() {
+    console.log('hi')
+  }
   _onReady(event) {
     // access to player in all event handlers via event.target
     event.target.pauseVideo()

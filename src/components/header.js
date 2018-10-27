@@ -1,28 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import { Link } from 'gatsby'
-
-const Links = styled.div`
-  margin: 0 auto;
-  max-width: 960px;
-  display: flex;
-  align-items: center;
-  padding: 40px 0;
-  @media only screen and (max-width: 768px) {
-    padding: 20px 0;
-  }
-`
-
-const StyledLink = styled.p`
-  font-family: exo;
-  text-transform: uppercase;
-  font-size: 20px;
-  margin: 0;
-  @media only screen and (max-width: 768px) {
-    font-size: 16px;
-  }
-`
+import './layout.css'
 
 const linkStyle = {
   color: 'black',
@@ -30,26 +9,26 @@ const linkStyle = {
 }
 
 const Header = () => (
-  <Links>
-    <StyledLink>
+  <div className="links">
+    <p className="link">
       <Link to="/" style={Object.assign({ marginRight: '25px' }, linkStyle)}>
         home
       </Link>
-    </StyledLink>
-    <StyledLink>
+    </p>
+    <p className="link">
       <Link
         to="/gallery"
         style={Object.assign({ marginRight: '25px' }, linkStyle)}
       >
         gallery
       </Link>
-    </StyledLink>
-    <StyledLink>
+    </p>
+    <p className="link">
       <Link to="/contact" style={linkStyle}>
         contact
       </Link>
-    </StyledLink>
-  </Links>
+    </p>
+  </div>
 )
 
 export default Header

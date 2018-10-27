@@ -3,6 +3,8 @@ import React from 'react'
 import Layout from '../components/layout'
 
 import Gallery from 'react-image-gallery'
+import 'react-image-gallery/styles/css/image-gallery.css'
+
 import YouTube from 'react-youtube'
 
 import pic2 from '../images/gallery/gallery2.jpg'
@@ -37,9 +39,6 @@ const styles = {
 }
 
 class GalleryPage extends React.Component {
-  componentDidMount() {
-    console.log('hi')
-  }
   _onReady(event) {
     // access to player in all event handlers via event.target
     event.target.pauseVideo()

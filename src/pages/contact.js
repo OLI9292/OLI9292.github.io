@@ -31,7 +31,7 @@ const ContactPage = () => (
     </p>
     <br />
     <p style={styles.text}>
-      Email me at{' '}
+      For more information email{' '}
       <a href="mailto:info@behumblemovement.com" style={emailStyle}>
         info@behumblemovement.com
       </a>

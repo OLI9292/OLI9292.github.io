@@ -1,12 +1,12 @@
 import React from 'react'
+import styled from 'styled-components'
+
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import 'react-image-gallery/styles/css/image-gallery.css'
 
 import TESTIMONIALS from '../data/testimonials'
-
-import styled from 'styled-components'
 
 import Layout from '../components/layout'
 

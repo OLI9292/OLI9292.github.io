@@ -1,7 +1,6 @@
 import React from 'react'
 import Gallery from 'react-image-gallery'
 import YouTube from 'react-youtube'
-import styled from 'styled-components'
 
 import Layout from '../components/layout'
 
@@ -26,15 +25,16 @@ const images = [pic1, pic2, pic3, pic4, pic5].map(pic => ({
   thumbnail: pic,
 }))
 
-const Header = styled.h1`
-  font-family: Exo;
-  font-weight: 900;
-  color: #ffc300;
-`
-
-const Box = styled.div`
-  margin: 40px 20px;
-`
+const styles = {
+  header: {
+    fontFamily: 'Exo',
+    fontWeight: 900,
+    color: '#ffc300',
+  },
+  box: {
+    margin: '40px 20px',
+  },
+}
 
 class GalleryPage extends React.Component {
   _onReady(event) {
@@ -45,25 +45,25 @@ class GalleryPage extends React.Component {
   render() {
     return (
       <Layout>
-        <Header>Images</Header>
+        <h1 style={styles.header}>Images</h1>
 
-        <Box>
+        <div style={styles.box}>
           <Gallery showPlayButton={false} items={images} />
-        </Box>
+        </div>
 
         <br />
 
-        <Header>Videos</Header>
+        <h1 style={styles.header}>Videos</h1>
 
         {VIDEOS.map(id => (
-          <Box className="video">
+          <div style={styles.box} className="video">
             <YouTube
               key={id}
               videoId={id}
               opts={youtubeOptions}
               onReady={this._onReady}
             />
-          </Box>
+          </div>
         ))}
       </Layout>
     )

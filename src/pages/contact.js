@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
 
@@ -11,13 +10,14 @@ const emailStyle = {
 
 const ContactPage = () => (
   <Layout>
-    <img style={styles.bannerImage} src={team} />
+    <img alt="background" style={styles.bannerImage} src={team} />
     <h1 style={styles.header}>Jay Mark</h1>
     <ul style={styles.text}>
       <li>Certified Personal Trainer</li>
       <li>Owner Be Humble Movement</li>
       <li>
-        Pro Fighter, Mixed Martial Artist, Muay Thai & Kickboxing Champion{' '}
+        Bellator Pro Fighter, Mixed Martial Artist, Muay Thai & Kickboxing
+        Champion
       </li>
       <li>ECF MMA 2x Champion</li>
       <li>NYFE MMA Champion</li>

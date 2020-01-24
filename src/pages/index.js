@@ -9,8 +9,8 @@ import TESTIMONIALS from '../data/testimonials'
 
 import Layout from '../components/layout'
 
-import main from '../images/main.jpg'
-import secondary1 from '../images/secondary1.jpg'
+import main from '../images/main-2.png'
+import secondary1 from '../images/secondary1.png'
 import secondary2 from '../images/secondary2.jpg'
 import secondary3 from '../images/secondary3.jpg'
 

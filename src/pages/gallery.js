@@ -7,10 +7,12 @@ import 'react-image-gallery/styles/css/image-gallery.css'
 
 import YouTube from 'react-youtube'
 
-import pic2 from '../images/gallery/gallery2.jpg'
 import pic3 from '../images/gallery/gallery3.jpg'
 import pic4 from '../images/gallery/gallery4.jpg'
 import pic5 from '../images/gallery/gallery5.jpg'
+import pic6 from '../images/gallery/gallery6.jpg'
+import pic7 from '../images/gallery/gallery7.png'
+import pic8 from '../images/gallery/gallery8.png'
 
 const youtubeOptions = {
   playerVars: {
@@ -20,9 +22,9 @@ const youtubeOptions = {
   },
 }
 
-const VIDEOS = ['db-P2g-Ggxw', '5Lt8hB9ib2o', 'HY05H3lCPXY']
+const VIDEOS = ['b15bbYcKq6w', 'ujd63n8SBFA']
 
-const images = [pic2, pic3, pic4, pic5].map(pic => ({
+const images = [pic3, pic4, pic5, pic6, pic7, pic8].map(pic => ({
   original: pic,
   thumbnail: pic,
 }))

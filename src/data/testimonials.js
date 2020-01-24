@@ -34,7 +34,6 @@ module.exports = [
       'From my very first session with Jay Mark, I realized what I was missing all those years “boxing”. Each session with Jay Mark is not only physically, but mentally challenging as well. As a professional fighter, Jay Mark is skilled in Muai Thai fighting and technique. In additions, he has years of experience in general fitness and personal training, a rare combination to find in a trainer.  Over the years there hasn’t been a question he hasn’t able to answer intelligently (and I ask a lot of questions 🙈) or a move he wasn’t able to explain and help me master. On a weekly basis he challenges my fitness level, learning and growing each week.',
     from: 'Raquel Ghadamian',
   },
-  ,
   {
     text:
       'Jay has trained me in muay thai and kickboxing for 2 years; and in that time has given me the confidence and ability to compete and win in amateur competitions.  Jay knows how to bring out the best in you, while always keeping a smile.  One of the things I appreciate most about Jay is how he embodies everything he teaches: confidence, humility, and work ethic.  Thanks Jay!',

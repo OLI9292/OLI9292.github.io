@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
 import insta from '../images/insta.png'
 
@@ -45,8 +44,12 @@ const instaStyle = {
 
 const Footer = () => (
   <div style={containerStyle}>
-    <a href="https://www.instagram.com/jmark_champfit/?hl=en" target="_blank">
-      <img src={insta} style={instaStyle} />
+    <a
+      href="https://www.instagram.com/behumblemovement/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img alt="instagram" src={insta} style={instaStyle} />
     </a>
     <div style={dividerStyle} />
     <a href="mailto:info@behumblemovement.com" style={emailStyle}>

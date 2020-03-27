@@ -664,3 +664,8 @@ iframe {
     padding: 20px 0;
   }
 }
+
+iframe {
+  position: static;
+  display: block;
+}

@@ -29,12 +29,16 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
+
         <Header />
+
         <div
           style={{
             margin: '0 auto',
             maxWidth: 960,
-            paddingTop: 0,
+            padding: 0,
+            marginLeft: 0,
+            marginRight: 0,
           }}
         >
           {children}

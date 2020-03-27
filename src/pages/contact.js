@@ -23,11 +23,11 @@ const ContactPage = () => (
       <li>NYFE MMA Champion</li>
     </ul>
     <p style={styles.text}>
-      I have over 10+ years in the Fitness industry and the mix martial arts
-      world. My passion is to teach the importance of health and fitness to
-      others while providing my knowledge in both exercise and nutrition. I take
-      pride knowing that, I've helped hundred's of clients reach their fitness
-      goals and improve their health through diet and exercise.
+      Jay Mark has over 10+ years in the fitness industry and the mix martial
+      arts world. His passion is teaching others the importance of health and
+      fitness and providing knowledge in exercise and nutrition. Jason takes
+      pride in having helped hundreds of clients reach their fitness goals and
+      improve their health through diet and exercise.
     </p>
     <br />
     <p style={styles.text}>

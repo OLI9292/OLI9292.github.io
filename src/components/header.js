@@ -3,6 +3,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 import './layout.css'
 
+import StickyCTA from './sticky-cta'
+
 const linkStyle = {
   color: 'black',
   textDecoration: 'none',
@@ -28,6 +30,8 @@ const Header = () => (
         contact
       </Link>
     </p>
+
+    <StickyCTA />
   </div>
 )
 

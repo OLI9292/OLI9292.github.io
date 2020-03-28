@@ -10,6 +10,7 @@ import TESTIMONIALS from '../data/testimonials'
 import Layout from '../components/layout'
 
 import main from '../images/main-2.png'
+import mainWide from '../images/main-2-wide.png'
 import secondary1 from '../images/secondary1.png'
 import secondary2 from '../images/secondary2.jpg'
 import secondary3 from '../images/secondary3.jpg'
@@ -33,13 +34,14 @@ class IndexPage extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { iframeHeight: 0 }
+    this.state = { iframeHeight: 0, isMobile: true }
   }
 
   componentDidMount() {
     this.loadIframeScript()
     this.setResizeInterval()
     this.checkScrollIntoView()
+    this.setMainImageInterval()
   }
 
   componentWillUnmount() {
@@ -73,22 +75,30 @@ class IndexPage extends React.Component {
     this.setState({ iframeHeight: this.iframe().clientHeight })
   }
 
+  setMainImage() {
+    const breakpoint = 768
+    const isMobile = window.innerWidth < breakpoint
+    this.setState({ isMobile })
+  }
+
   setResizeInterval() {
     const interval = setInterval(this.resizeIframeContainer.bind(this), 100)
     this.setState({ interval })
   }
 
+  setMainImageInterval() {
+    const mainImageInterval = setInterval(this.setMainImage.bind(this), 100)
+    this.setState({ mainImageInterval })
+  }
+
   render() {
     return (
       <Layout>
-        <Flexed>
+        {this.state.isMobile ? (
           <MainImage src={main} />
-          <HeaderLarge>
-            be humble
-            <br />
-            <span style={{ color: 'black' }}>movement</span>
-          </HeaderLarge>
-        </Flexed>
+        ) : (
+          <MainImageWide src={mainWide} />
+        )}
 
         <Tagline>If you fail to plan, you plan to fail.</Tagline>
 
@@ -138,17 +148,16 @@ class IndexPage extends React.Component {
         <br />
 
         <BookingContainer className="booking-container">
-          <HeaderLarge
+          <HeaderMedium
             style={{
               textAlign: 'center',
               margin: '0',
               color: '#ffc300',
-              fontSize: '60px',
               padding: '40px 0 10px 0',
             }}
           >
             book a session
-          </HeaderLarge>
+          </HeaderMedium>
 
           <div style={{ height: this.state.iframeHeight }}>
             <iframe
@@ -164,24 +173,20 @@ class IndexPage extends React.Component {
   }
 }
 
-const BookingContainer = styled.div`
-  background-color: white;
-  width: 100vw;
-  margin-left: -20px;
-  @media only screen and (max-width: 768px) {
-    width: calc(100vw - 40px);
-    margin-left: 0;
-  }
+const MainImage = styled.img`
+  height: auto;
+  width: 100%;
 `
 
-const Flexed = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  overflow: hidden;
-  @media only screen and (max-width: 768px) {
-    flex-direction: column-reverse;
-  }
+const MainImageWide = styled.img`
+  height: auto;
+  width: 150%;
+`
+
+const BookingContainer = styled.div`
+  background-color: white;
+  width: 100%;
+  margin: 0 auto;
 `
 
 const Informatic = styled.div`
@@ -230,13 +235,11 @@ const HeaderLarge = styled.h1`
   }
 `
 
-const MainImage = styled.img`
-  min-height: 75vh;
-  min-width: 75vh;
-  max-width: 75vh;
-  max-height: 75vh;
-  width: auto;
-  height: auto;
+const HeaderMedium = styled(HeaderLarge)`
+  font-size: 60px;
+  @media only screen and (max-width: 768px) {
+    font-size: 40px;
+  }
 `
 
 const SecondaryImage = styled.img`

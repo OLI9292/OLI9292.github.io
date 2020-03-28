@@ -32,15 +32,7 @@ const Layout = ({ children }) => (
 
         <Header />
 
-        <div
-          style={{
-            margin: '0 auto',
-            maxWidth: 960,
-            padding: 0,
-            marginLeft: 0,
-            marginRight: 0,
-          }}
-        >
+        <div style={{ margin: '0 auto', maxWidth: 960, padding: 0 }}>
           {children}
         </div>
         <Footer />

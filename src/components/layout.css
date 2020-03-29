@@ -669,3 +669,9 @@ iframe {
   position: static;
   display: block;
 }
+
+.video > div {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}

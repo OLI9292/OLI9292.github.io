@@ -69,6 +69,8 @@ class GalleryPage extends React.Component {
             />
           </div>
         ))}
+
+        <br />
       </Layout>
     )
   }

@@ -15,11 +15,6 @@ import secondary1 from '../images/secondary1.png'
 import secondary2 from '../images/secondary2.jpg'
 import secondary3 from '../images/secondary3.jpg'
 
-import { scrollIframeIntoView } from '../helpers'
-
-const IFRAME_SOURCE =
-  'https://app.acuityscheduling.com/schedule.php?owner=19329515'
-
 var settings = {
   dots: true,
   infinite: true,
@@ -34,13 +29,10 @@ class IndexPage extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { iframeHeight: 0, isMobile: true }
+    this.state = { isMobile: true }
   }
 
   componentDidMount() {
-    this.loadIframeScript()
-    this.setResizeInterval()
-    this.checkScrollIntoView()
     this.setMainImageInterval()
   }
 
@@ -49,41 +41,10 @@ class IndexPage extends React.Component {
     clearTimeout(this.state.timeout)
   }
 
-  checkScrollIntoView() {
-    if (typeof window == 'undefined') return
-
-    const { search } = window.location
-    if (!search.includes('?b=t')) return
-
-    const timeout = setTimeout(() => scrollIframeIntoView(), 1250)
-    this.setState({ timeout })
-  }
-
-  iframe() {
-    return document.getElementsByTagName('iframe')[0]
-  }
-
-  loadIframeScript() {
-    const script = document.createElement('script')
-    script.src = 'https://embed.acuityscheduling.com/js/embed.js'
-    document.body.appendChild(script)
-  }
-
-  resizeIframeContainer() {
-    if (!this.iframe()) return
-
-    this.setState({ iframeHeight: this.iframe().clientHeight })
-  }
-
   setMainImage() {
     const breakpoint = 768
     const isMobile = window.innerWidth < breakpoint
     this.setState({ isMobile })
-  }
-
-  setResizeInterval() {
-    const interval = setInterval(this.resizeIframeContainer.bind(this), 100)
-    this.setState({ interval })
   }
 
   setMainImageInterval() {
@@ -145,29 +106,6 @@ class IndexPage extends React.Component {
         </Slider>
 
         <br />
-        <br />
-
-        <BookingContainer className="booking-container">
-          <HeaderMedium
-            style={{
-              textAlign: 'center',
-              margin: '0',
-              color: '#ffc300',
-              padding: '40px 0 10px 0',
-            }}
-          >
-            book a session
-          </HeaderMedium>
-
-          <div style={{ height: this.state.iframeHeight }}>
-            <iframe
-              title="Book a Session"
-              src={IFRAME_SOURCE}
-              width="100%"
-              frameBorder="0"
-            ></iframe>
-          </div>
-        </BookingContainer>
       </Layout>
     )
   }
@@ -181,12 +119,6 @@ const MainImage = styled.img`
 const MainImageWide = styled.img`
   height: auto;
   width: 150%;
-`
-
-const BookingContainer = styled.div`
-  background-color: white;
-  width: 100%;
-  margin: 0 auto;
 `
 
 const Informatic = styled.div`
